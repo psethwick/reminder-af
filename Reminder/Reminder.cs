@@ -10,6 +10,10 @@ namespace Remember.Your.Id
         public static void Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, TraceWriter log)
         {
             log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+            const string message = "Remember your id...";
+            var number = int.Parse(System.Environment.GetEnvironmentVariable("PhoneNumber"));
+            log.Info(number.ToString());
+            Sms.Send(number, message);
         }
     }
 }

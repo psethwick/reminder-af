@@ -1,8 +1,8 @@
 namespace Remember.Your.Id
 {
-    public class Sms
+    public static class Sms
     {
-        public void Send(int phoneNumber, string message)
+        public static void Send(int phoneNumber, string message)
         {
 
         }
