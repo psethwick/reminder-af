@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using static System.Environment;
 
 namespace Remember.Your.Id
 {
@@ -11,9 +12,9 @@ namespace Remember.Your.Id
         {
             log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
             const string message = "Remember your id...";
-            var number = long.Parse(System.Environment.GetEnvironmentVariable("PhoneNumber"));
-            log.Info(number.ToString());
-            Sms.Send(number, message);
+            var number = GetEnvironmentVariable("PhoneNumber");
+            log.Info(number);
+            Sms.Send(number, message, log);
         }
     }
 }
