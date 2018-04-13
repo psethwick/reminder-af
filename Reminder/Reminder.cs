@@ -12,19 +12,21 @@ namespace Remember.Your.Id
         {
             log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 
-            if (DateTime.Now.DayOfWeek != DayOfWeek.Friday)
+            var now = DateTime.Now.ToLocalTime();
+
+            if (now.DayOfWeek != DayOfWeek.Friday)
             {
                 log.Info("It's not Friday");
                 return;
             }
             var tooEarly = new TimeSpan(6, 44, 0);
-            if (DateTime.Now.TimeOfDay < tooEarly)
+            if (now.TimeOfDay < tooEarly)
             {
                 log.Info("It's too early");
                 return;
             }
             var tooLate = new TimeSpan(9, 0, 0);
-            if (DateTime.Now.TimeOfDay > tooLate)
+            if (now.TimeOfDay > tooLate)
             {
                 log.Info("It's too late");
                 return;
