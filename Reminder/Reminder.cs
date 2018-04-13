@@ -24,7 +24,7 @@ namespace Remember.Your.Id
                 log.Info("It's too early");
                 return;
             }
-            var tooLate = new TimeSpan(9, 0, 0);
+            var tooLate = new TimeSpan(8, 0, 0);
             if (now.TimeOfDay > tooLate)
             {
                 log.Info("It's too late");
