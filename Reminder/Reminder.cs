@@ -10,7 +10,7 @@ namespace Remember.Your.Id
         [FunctionName("Reminder")]
         public static void Run([TimerTrigger("0 */15 * * * *")]TimerInfo myTimer, TraceWriter log)
         {
-            var now = DateTime.UtcNow.ToLocalTime();
+            var now = DateTime.UtcNow.ToBritishTime();
             log.Info($"C# Timer trigger function executed at: {now}");
 
             if (now.DayOfWeek != DayOfWeek.Friday)
