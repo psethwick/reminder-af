@@ -32,7 +32,7 @@ namespace Remember.Your.Id
             }
 
             var message = GetEnvironmentVariable("Message");
-            var numbers = GetEnvironmentVariable("PhoneNumber").Split(',');
+            var numbers = GetEnvironmentVariable("PhoneNumbers").Split(',');
             foreach (var number in numbers)
             {
                 log.Info(number);
