@@ -31,10 +31,13 @@ namespace Remember.Your.Id
                 return;
             }
 
-            const string message = "Remember your id...";
-            var number = GetEnvironmentVariable("PhoneNumber");
-            log.Info(number);
-            Sms.Send(number, message, log);
+            const string message = GetEnvironmentVariable("Message");
+            var numbers = GetEnvironmentVariable("PhoneNumber").Split(',');
+            foreach (var number in numbers)
+            {
+                log.Info(number);
+                Sms.Send(number, message, log);
+            }
         }
     }
 }
