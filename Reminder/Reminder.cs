@@ -31,7 +31,7 @@ namespace Remember.Your.Id
                 return;
             }
 
-            const string message = GetEnvironmentVariable("Message");
+            var message = GetEnvironmentVariable("Message");
             var numbers = GetEnvironmentVariable("PhoneNumber").Split(',');
             foreach (var number in numbers)
             {
